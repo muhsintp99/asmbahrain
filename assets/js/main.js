@@ -62,6 +62,48 @@ async function startTypingAnimation() {
 // Start the typing animation when the page loads
 document.addEventListener('DOMContentLoaded', startTypingAnimation);
 
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const serviceItems = document.querySelectorAll('.service-item');
+
+  serviceItems.forEach(item => {
+    const downIcon = item.querySelector('.down');
+    
+    // Initial check
+    checkScrollPosition(item, downIcon);
+
+    // Add scroll event listener
+    item.addEventListener('scroll', function () {
+      checkScrollPosition(this, downIcon);
+    });
+  });
+
+  function checkScrollPosition(element, downIcon) {
+    if (element.scrollTop > 0) {
+      downIcon.classList.add('hidden');
+    } else {
+      downIcon.classList.remove('hidden');
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
 (function() {
   "use strict";
   

@@ -12,7 +12,7 @@
   --accent-color: #e8101c;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
-  --just-color:#f8981d;
+  --just-color: #f8981d;
 }
 
 :root {
@@ -576,9 +576,13 @@ h6 {
 }
 
 .footer .copyright {
-  padding: 25px 0;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
+
+.footer .copyright .row {
+  padding: 20px 0px;
+}
+
 
 .footer .copyright p {
   margin-bottom: 0;
@@ -832,7 +836,7 @@ section,
   backdrop-filter: blur(24px);
   /* margin: 20px 0 30px 0; */
   padding: 1.2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   border-radius: 24px;
@@ -1054,16 +1058,18 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about img{
+.about img {
   height: 28rem;
   border-radius: 24px;
 }
-.about .content{
+
+.about .content {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+
 .about .content h3 {
   font-size: 1.75rem;
   font-weight: 700;
@@ -1090,57 +1096,6 @@ section,
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  text-align: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  padding: 80px 20px;
-  transition: border ease-in-out 0.3s;
-  height: 100%;
-}
-
-.services .service-item .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: var(--accent-color);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: 0.3s;
-}
-
-.services .service-item .icon i {
-  color: var(--contrast-color);
-  font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
-
-.services .service-item h3 {
-  font-weight: 700;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-  transition: 0.3s;
-}
-
-.services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.services .service-item:hover {
-  border-color: var(--accent-color);
-}
-
-.services .service-item:hover h3 {
-  color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Portfolio Section
@@ -1328,6 +1283,7 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  border-radius: 24px;
 }
 
 @media (max-width: 575px) {
@@ -1377,6 +1333,7 @@ section,
   height: 100%;
   padding: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
 }
 
 @media (max-width: 575px) {
@@ -1386,24 +1343,27 @@ section,
 }
 
 .contact .php-email-form input[type=text],
+.contact .php-email-form input[type=tel],
 .contact .php-email-form input[type=email],
 .contact .php-email-form textarea {
+  border-radius: 14px;
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
-  border-radius: 0;
   color: var(--default-color);
   background-color: var(--surface-color);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
 .contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=tel]:focus,
 .contact .php-email-form input[type=email]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=tel]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
@@ -1485,8 +1445,151 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services .service-item {
+  background-color: var(--surface-color);
+  text-align: justify;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  padding: 20px 20px;
+  transition: border ease-in-out 0.3s;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+.services .service-item .icon {
+  margin: 0 auto;
+  width: 64px;
+  height: 64px;
+  background: var(--accent-color);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.services .service-item .icon i {
+  color: var(--contrast-color);
+  font-size: 28px;
+  transition: ease-in-out 0.3s;
+}
+
+.services .service-item h3 {
+  font-weight: 700;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.services .service-item p {
+  line-height: 24px;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.services .service-item:hover {
+  border-color: var(--accent-color);
+}
+
+.services .service-item:hover h3 {
+  color: var(--accent-color);
+}
+
+.services .service-item:hover p {
+  color: var(--accent-color);
+}
+
+.services .service-item .down i {
+  text-align: center;
+  background-color: var(--accent-color);
+  padding: 5px 8px;
+  border-radius: 50%;
+  font-weight: 600;
+  color: var(--background-color);
+}
+
+.services .service-item .down {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: auto;
+}
+
+.services .service-item .up {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.services .service-item .down {
+  bottom: 12px;
+}
+
+.services .service-item .up {
+  top: 12px;
+  opacity: 0;
+  /* Initially hidden */
+  pointer-events: none;
+}
+
+.services .service-item .hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.services .service-item .btn {
+  border-radius: 16px;
+  width: 100%;
+  border: none;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.services .service-item .btn:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.services .service-item .btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  color: var(--default-color);
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+
+/*--------------------------------------------------------------
 # Service Details Section
 --------------------------------------------------------------*/
+
 .service-details .service-box {
   background-color: var(--surface-color);
   padding: 20px;
@@ -1617,6 +1720,7 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+
 
 /*--------------------------------------------------------------
 # Starter Section Section
