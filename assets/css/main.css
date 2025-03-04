@@ -728,6 +728,14 @@ section,
   }
 }
 
+@media (max-width: 609px) {
+
+  section,
+  .section {
+    padding: 30px 0;
+  }
+}
+
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
@@ -1052,6 +1060,12 @@ section,
   .hero .contact-form button.btn-primary {
     padding: 12px 20px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 630px) {
+  .hero .typing-container {
+    min-height: 3.5rem;
   }
 }
 
@@ -1455,7 +1469,7 @@ section,
   padding: 20px 20px;
   transition: border ease-in-out 0.3s;
   height: 100%;
-  scrollbar-width: none;
+
 }
 
 .services .service-item .icon {
@@ -1485,9 +1499,13 @@ section,
 }
 
 .services .service-item p {
+  /* background-color: #8f8d8d; */
   line-height: 24px;
   font-size: 1rem;
   margin-bottom: 0;
+  overflow: scroll;
+  height: 132px;
+  scrollbar-width: none;
 }
 
 .services .service-item:hover {
@@ -1504,10 +1522,11 @@ section,
 
 .services .service-item .down i {
   text-align: center;
-  background-color: var(--accent-color);
-  padding: 5px 8px;
+  background-color:
+    color-mix(in srgb, var(--accent-color), transparent 16%);
+  padding: 0px 6px;
   border-radius: 50%;
-  font-weight: 600;
+  /* font-weight: 600; */
   color: var(--background-color);
 }
 
@@ -1519,38 +1538,13 @@ section,
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 67px;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
   pointer-events: auto;
 }
 
-.services .service-item .up {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: auto;
-  z-index: 2;
-}
-
-.services .service-item .down {
-  bottom: 12px;
-}
-
-.services .service-item .up {
-  top: 12px;
-  opacity: 0;
-  /* Initially hidden */
-  pointer-events: none;
-}
-
-.services .service-item .hidden {
+.services .service-item .down.hidden {
   opacity: 0;
   pointer-events: none;
 }

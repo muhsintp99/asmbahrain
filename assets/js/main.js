@@ -3,7 +3,7 @@ const headings = [
   "Starting a business? Not sure where to begin?",
   "Need to update your business details?",
   "Closing your business? Want a stress-free exit?",
-  "struggling with accounts and bookkeeping?"
+  "Struggling with accounts and bookkeeping?"
 ];
 
 const typingSpeed = 100; 
@@ -68,32 +68,42 @@ document.addEventListener('DOMContentLoaded', startTypingAnimation);
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
-  const serviceItems = document.querySelectorAll('.service-item');
+  const serviceItems = document.querySelectorAll('.services .service-item');
 
-  serviceItems.forEach(item => {
-    const downIcon = item.querySelector('.down');
-    
-    // Initial check
-    checkScrollPosition(item, downIcon);
+  serviceItems.forEach(serviceItem => {
+    const content = serviceItem.querySelector('p');
+    const downIcon = serviceItem.querySelector('.down');
+
+    // Check if the content is scrollable initially and show/hide icon accordingly
+    checkScrollability(content, downIcon);
 
     // Add scroll event listener
-    item.addEventListener('scroll', function () {
+    content.addEventListener('scroll', function () {
       checkScrollPosition(this, downIcon);
     });
   });
 
-  function checkScrollPosition(element, downIcon) {
-    if (element.scrollTop > 0) {
+  function checkScrollability(content, downIcon) {
+    if (content.scrollHeight > content.clientHeight) {
+      // Content is scrollable, show the down icon initially
+      downIcon.classList.remove('hidden');
+    } else {
+      // Content isn't scrollable, hide the down icon
+      downIcon.classList.add('hidden');
+    }
+  }
+
+  function checkScrollPosition(content, downIcon) {
+    if (content.scrollTop > 0) {
+      // User has scrolled down, hide the down icon
       downIcon.classList.add('hidden');
     } else {
-      downIcon.classList.remove('hidden');
+      // User has scrolled back to top, show the down icon if scrollable
+      checkScrollability(content, downIcon);
     }
   }
 });
-
 
 
 
