@@ -1020,6 +1020,13 @@ section,
   }
 }
 
+@media (max-width: 991px) {
+  .hero .contact-form {
+      padding: 1.5rem;
+      height: 475px;
+  }
+}
+
 @media (max-width: 640px) {
   .hero .title {
     font-size: 2rem;
@@ -1050,6 +1057,7 @@ section,
 
   .hero .contact-form {
     padding: 1.5rem;
+    height: 447px;
   }
 
   .hero .contact-form .form-control {
@@ -1470,6 +1478,17 @@ section,
   transition: border ease-in-out 0.3s;
   height: 100%;
 
+}
+
+.services .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.services .col-lg-4 {
+  flex: 1 1 300px;
+  max-width: 100%;
 }
 
 .services .service-item .icon {

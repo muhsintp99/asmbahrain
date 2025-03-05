@@ -6,14 +6,14 @@ const headings = [
   "Struggling with accounts and bookkeeping?"
 ];
 
-const typingSpeed = 100; 
-const deleteSpeed = 50; 
+const typingSpeed = 100;
+const deleteSpeed = 50;
 const delayBetweenHeadings = 2000;
 
 const headingElement = document.getElementById("typing-heading");
 
 async function typeText(text, speed) {
-  headingElement.textContent = '';  // Clear text before starting
+  headingElement.textContent = '';
   return new Promise((resolve) => {
     let i = 0;
     const typingInterval = setInterval(() => {
@@ -34,7 +34,7 @@ async function deleteText(speed) {
     let i = text.length;
     const deletingInterval = setInterval(() => {
       if (i > 0) {
-        headingElement.textContent = text.substring(0, i-1);
+        headingElement.textContent = text.substring(0, i - 1);
         i--;
       } else {
         clearInterval(deletingInterval);
@@ -46,20 +46,18 @@ async function deleteText(speed) {
 
 async function startTypingAnimation() {
   let i = 0;
-  
-  // Initial delay to allow page load
+
   await new Promise(resolve => setTimeout(resolve, 500));
-  
-  while (true) { 
+
+  while (true) {
     await typeText(headings[i], typingSpeed);
     await new Promise(resolve => setTimeout(resolve, delayBetweenHeadings));
     await deleteText(deleteSpeed);
-    await new Promise(resolve => setTimeout(resolve, 300)); // Small pause between cycles
+    await new Promise(resolve => setTimeout(resolve, 300));
     i = (i + 1) % headings.length;
   }
 }
 
-// Start the typing animation when the page loads
 document.addEventListener('DOMContentLoaded', startTypingAnimation);
 
 
@@ -75,10 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const content = serviceItem.querySelector('p');
     const downIcon = serviceItem.querySelector('.down');
 
-    // Check if the content is scrollable initially and show/hide icon accordingly
     checkScrollability(content, downIcon);
 
-    // Add scroll event listener
     content.addEventListener('scroll', function () {
       checkScrollPosition(this, downIcon);
     });
@@ -86,20 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkScrollability(content, downIcon) {
     if (content.scrollHeight > content.clientHeight) {
-      // Content is scrollable, show the down icon initially
       downIcon.classList.remove('hidden');
     } else {
-      // Content isn't scrollable, hide the down icon
       downIcon.classList.add('hidden');
     }
   }
 
   function checkScrollPosition(content, downIcon) {
     if (content.scrollTop > 0) {
-      // User has scrolled down, hide the down icon
       downIcon.classList.add('hidden');
     } else {
-      // User has scrolled back to top, show the down icon if scrollable
       checkScrollability(content, downIcon);
     }
   }
@@ -114,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-(function() {
+(function () {
   "use strict";
-  
+
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -159,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * Toggle mobile nav dropdowns
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+    navmenu.addEventListener('click', function (e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
       this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
@@ -226,13 +218,13 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * Init isotope layout and filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
         itemSelector: '.isotope-item',
         layoutMode: layout,
@@ -241,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+      filters.addEventListener('click', function () {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
         initIsotope.arrange({
@@ -260,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -278,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function (e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
         setTimeout(() => {
