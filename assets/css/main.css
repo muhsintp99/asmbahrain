@@ -744,6 +744,10 @@ section,
   /* padding: 30px 0; */
   /* margin-bottom: 30px; */
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .section-title h2 {
@@ -754,6 +758,7 @@ section,
   padding-bottom: 0;
   position: relative;
   z-index: 2;
+  max-width: 800px;
 }
 
 .section-title span {
@@ -1119,7 +1124,6 @@ section,
 }
 
 
-
 .about .btn {
   border-radius: 16px;
   padding: 8px 20px;
@@ -1140,7 +1144,7 @@ section,
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.about .card .btn i {
+.about .content .btn i {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1155,10 +1159,45 @@ section,
   transition: transform 0.3s ease;
 }
 
-
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+
+.portfolio .portfolio-img .btn {
+  border-radius: 16px;
+  padding: 8px 20px;
+  border: none;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.portfolio .portfolio-img .text-end {
+  margin-top: auto;
+}
+
+
+.portfolio .portfolio-img .btn:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio .portfolio-img .btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  color: var(--default-color);
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1523,25 +1562,7 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
 
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
 
 .portfolio-details .portfolio-info {
   background-color: var(--surface-color);
