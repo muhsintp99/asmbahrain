@@ -1617,16 +1617,16 @@ section,
 
 }
 
-.services .row {
+/* .services .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
-.services .col-lg-4 {
+/* .services .col-lg-4 {
   flex: 1 1 300px;
   max-width: 100%;
-}
+} */
 
 .services .service-item .icon {
   margin: 0 auto;
@@ -1659,9 +1659,9 @@ section,
   line-height: 24px;
   font-size: 1rem;
   margin-bottom: 0;
-  overflow: scroll;
-  height: 132px;
-  scrollbar-width: none;
+  /* overflow: scroll; */
+  /* height: 132px; */
+  /* scrollbar-width: none; */
 }
 
 .services .service-item:hover {
