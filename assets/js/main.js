@@ -308,3 +308,27 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const popupShown = sessionStorage.getItem('popupShown');
+
+  if (!popupShown) {
+    setTimeout(function () {
+      const modal = new bootstrap.Modal(document.getElementById('delayed-popup'));
+      modal.show();
+    }, 8000);
+  }
+
+  const closeButton = document.querySelector('.btn-close');
+  closeButton.addEventListener('click', function () {
+    sessionStorage.setItem('popupShown', 'true');
+  });
+
+  window.addEventListener('beforeunload', function (event) {
+    if (!sessionStorage.getItem('popupShown')) {
+      event.preventDefault();
+      event.returnValue = '';
+    }
+  });
+});
