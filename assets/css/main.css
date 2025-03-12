@@ -1705,9 +1705,27 @@ section,
   justify-content: space-evenly;
 }
 
-.popup-text .popup-buttons a{
+.popup-text .popup-buttons a {
   background-color: var(--accent-color);
   border: none;
+  border-radius: 25px;
+  padding: 8px 14px;
+}
+
+
+.popup-text .popup-buttons a .right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  color: var(--default-color);
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
 }
 
 .popup-image {
@@ -1729,4 +1747,98 @@ section,
 .popup-image .btn {
   padding: 8px;
   background-color: var(--contrast-color);
+}
+
+
+/* ---------------------service page ------------------ */
+
+.servise-page img {
+  height: 18rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.servise-page img::before {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8206932431175595) 0%, rgba(242, 236, 236, 0) 100%);
+}
+
+.servise-page .icon {
+  margin: 0 auto;
+  width: 64px;
+  height: 64px;
+  background: var(--accent-color);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.servise-page .icon i {
+  color: var(--contrast-color);
+  font-size: 28px;
+  transition: ease-in-out 0.3s;
+}
+
+.servise-page h3 {
+  font-weight: 700;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.servise-page p {
+  line-height: 24px;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+
+.servise-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.servise-page ul li {
+  padding: 10px 0 0 0;
+  display: flex;
+}
+
+.servise-page ul i {
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+  line-height: 1.2;
+  font-size: 1.25rem;
+}
+
+.servise-page .btn {
+  border-radius: 16px;
+  padding: 8px 20px;
+  border: none;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.servise-page .btn:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.servise-page .btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  color: var(--default-color);
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
 }
