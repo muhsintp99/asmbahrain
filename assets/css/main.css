@@ -813,6 +813,24 @@ section,
   align-items: center;
 }
 
+/* #typing-heading {
+  font-size: 24px;
+  font-weight: bold;
+  caret-color: transparent;
+  display: inline-block;
+}
+
+#typing-heading::after {
+  content: "";
+  display: inline-block;
+  background-color: transparent;
+  animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+} */
+
 .hero .dynamic-text span {
   display: inline-block;
   position: relative;
@@ -825,7 +843,7 @@ section,
   top: 0;
   height: 100%;
   width: 3px;
-  background-color: var(--accent-color);
+  background-color: transparent;
   animation: blink-caret 0.75s step-end infinite;
 }
 
@@ -1038,10 +1056,19 @@ section,
   background-position: center;
 
 }
+
 .about img {
   height: 28rem;
   border-radius: 24px;
- animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width:660px) {
+  .about img {
+    height: 18rem;
+    border-radius: 24px;
+    animation: float 3s ease-in-out infinite;
+  }
 }
 
 /* Floating animation */
@@ -1049,9 +1076,11 @@ section,
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -1434,11 +1463,16 @@ section,
 
 
 .client-logo {
-  height: 80px; /* Adjust based on your needs */
-  object-fit: contain; /* Ensures the full logo is visible */
-  max-width: 100%; /* Prevents stretching */
-  display: block; /* Removes extra spacing */
-  margin: auto; /* Centers the image */
+  height: 80px;
+  /* Adjust based on your needs */
+  object-fit: contain;
+  /* Ensures the full logo is visible */
+  max-width: 100%;
+  /* Prevents stretching */
+  display: block;
+  /* Removes extra spacing */
+  margin: auto;
+  /* Centers the image */
 }
 
 
@@ -1626,7 +1660,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   transition: 0.3s;
 }
 
@@ -1812,9 +1846,9 @@ section,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .servise-page .sub-title img {
@@ -1839,17 +1873,24 @@ align-items: center;
   0% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
-  
 
-  
+
+
   50% {
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
-  
-  
+
+
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  } 
+  }
+}
+
+@media (max-width: 992px) {
+  .title-p {
+    margin: 10px 0px !important;
+
+  }
 }
 
 .servise-page h3 {
@@ -1914,9 +1955,7 @@ align-items: center;
 }
 
 
-@media (max-width:675px) {
-  
-}
+@media (max-width:675px) {}
 
 /* -------------- Privacy-policy-page ------------------- */
 
