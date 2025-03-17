@@ -1031,9 +1031,30 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about .img-contain {
+  background-image: url(../img/solution-logo/our-services-sticky-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
 .about img {
   height: 28rem;
   border-radius: 24px;
+ animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .about .content {
@@ -1077,10 +1098,6 @@ section,
   color: var(--contrast-color);
   background: var(--accent-color);
   transition: all 0.3s ease;
-}
-
-.about .text-end {
-  margin-top: auto;
 }
 
 
@@ -1413,6 +1430,15 @@ section,
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
+}
+
+
+.client-logo {
+  height: 80px; /* Adjust based on your needs */
+  object-fit: contain; /* Ensures the full logo is visible */
+  max-width: 100%; /* Prevents stretching */
+  display: block; /* Removes extra spacing */
+  margin: auto; /* Centers the image */
 }
 
 
