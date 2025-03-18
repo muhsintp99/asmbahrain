@@ -1826,6 +1826,33 @@ section,
   background-color: var(--contrast-color);
 }
 
+@media (max-width:979px) {
+  .popup-text .popup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width:766px) {
+  .popup-text .popup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .popup-image .btn {
+    padding: 8px;
+    background-color: var(--contrast-color);
+    position: absolute;
+    top: 11px;
+    right: 10px;
+  }
+
+  .popup-image {
+    background: none
+  }
+}
 
 /* ---------------------service page ------------------ */
 
