@@ -1382,6 +1382,14 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Our clients Section
+--------------------------------------------------------------*/
+
+.clients{
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+/*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
 
@@ -1464,15 +1472,11 @@ section,
 
 .client-logo {
   height: 80px;
-  /* Adjust based on your needs */
   object-fit: contain;
-  /* Ensures the full logo is visible */
   max-width: 100%;
-  /* Prevents stretching */
   display: block;
-  /* Removes extra spacing */
   margin: auto;
-  /* Centers the image */
+  /* filter: grayscale(100%); */
 }
 
 

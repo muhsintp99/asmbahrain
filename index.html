@@ -99,29 +99,49 @@
               organizations navigate challenges and achieve growth.</p>
 
             <div class="cta-buttons">
-              <a href="#about" class="btn-get-started">Get Help </a>
+              <a href="https://forms.gle/wjdaHqnzu4nqF7PCA" class="btn-get-started">Get Help </a>
             </div>
           </div>
           <div class="col-lg-5 mt-0 order-1 order-lg-2" data-aos="zoom-out" data-aos-delay="100">
-            <form class="contact-form">
+            <form class="contact-form needs-validation" id="contactForm" action="./forms/contact.php" method="POST"
+              novalidate>
               <h4 class="form-title mb-4">Request a Consultation</h4>
+
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Name">
+                <input type="text" class="form-control" id="fullnamer" name="fullnamer" placeholder="Enter your name"
+                  required minlength="3">
+                <div class="invalid-feedback">Name must be at least 3 characters.</div>
               </div>
+
               <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" id="emailr" name="emailr" placeholder="Enter your email"
+                  required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
               </div>
+
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="WhatsApp">
+                <input type="text" class="form-control" id="contactr" name="contactr" pattern="^\d{8}$"
+                  placeholder="Enter your WhatsApp number" required>
+                <div class="invalid-feedback">Please enter a valid 8-digit WhatsApp number.</div>
               </div>
+
               <div class="mb-3">
-                <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                <textarea class="form-control" id="messager" name="messager" placeholder="Enter your message" rows="3"
+                  required minlength="10"></textarea>
+                <div class="invalid-feedback">Message must be at least 10 characters.</div>
               </div>
-              <button type="submit" class="btn btn-primary">
-                Explore Now <i class="bi bi-arrow-right"></i>
+
+              <button type="submit" class="btn btn-primary d-flex align-items-center" id="submitButton">
+                <span>Explore Now</span>
+                <i class="bi bi-arrow-right ms-2"></i>
+                <span id="buttonSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
+                  aria-hidden="true"></span>
               </button>
+
+              <div id="responseMessage" class="alert d-none mt-3"></div>
             </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -647,17 +667,17 @@
               }
             }
           </script>
-              <div class="swiper-wrapper text-center">
-                <div class="swiper-slide"><img src="./assets/img/logos/BEANS & SEEDS LOGO-1.png" alt="Client 1"
-                    class="client-logo"></div>
-                <div class="swiper-slide"><img src="./assets/img/logos/cakewalk.jpg" alt="Client 2" class="client-logo">
-                </div>
-                <div class="swiper-slide"><img src="./assets/img/logos/SANFORD Logo-1.png" alt="Client 3"
-                    class="client-logo"></div>
-                <div class="swiper-slide"><img src="./assets/img/logos/mountain hills logo-1.png" alt="Client 4"
-                    class="client-logo"></div>
-                
-              </div>
+          <div class="swiper-wrapper text-center">
+            <div class="swiper-slide"><img src="./assets/img/logos/BEANS & SEEDS LOGO-1.png" alt="Client 1"
+                class="client-logo"></div>
+            <div class="swiper-slide"><img src="./assets/img/logos/Untitled-4.png" alt="Client 2" class="client-logo">
+            </div>
+            <div class="swiper-slide"><img src="./assets/img/logos/SANFORD Logo-1.png" alt="Client 3"
+                class="client-logo"></div>
+            <div class="swiper-slide"><img src="./assets/img/logos/mountain hills logo-1.png" alt="Client 4"
+                class="client-logo"></div>
+
+          </div>
               <!-- <div class="swiper-pagination"></div> -->
             </div>
           </div>
@@ -716,49 +736,51 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form class="contact-form needs-validation php-email-form" id="contactForm" action="forms/contact.php" method="post" novalidate>
               <div class="row gy-4">
-
+          
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" placeholder="Enter your Name" class="form-control"
-                    required="">
+                  <label for="name" class="pb-2">Your Name</label>
+                  <input type="text" name="fullname" id="fullname" placeholder="Enter your Name" class="form-control" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
                 </div>
-
+          
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Enter your Email" id="email-field"
-                    required="">
+                  <label for="email" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
-
+          
                 <div class="col-md-6">
-                  <label for="subject-field" class="pb-2">Your Contact</label>
-                  <input type="tel" class="form-control" name="subject" placeholder="Enter your Contact"
-                    id="subject-field" required="">
+                  <label for="contact" class="pb-2">Your Contact</label>
+                  <input type="tel" class="form-control" name="contact" id="contact" placeholder="Enter your Contact" required>
+                  <div class="invalid-feedback">Please enter a valid contact number.</div>
                 </div>
+          
                 <div class="col-md-6">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" placeholder="Enter your Subject"
-                    id="subject-field" required="">
+                  <label for="subject" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter your Subject" required>
+                  <div class="invalid-feedback">Please enter a subject.</div>
                 </div>
-
+          
                 <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" placeholder="Enter your Message..."
-                    id="message-field" required=""></textarea>
+                  <label for="message" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" id="message" rows="5" placeholder="Enter your Message..." required></textarea>
+                  <div class="invalid-feedback">Please enter your message.</div>
                 </div>
-
+          
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="btn btn-primary" id="submitButton">
+                    Send Message
+                    <span id="buttonSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
+                  </button>
                 </div>
-
+          
               </div>
+              <div id="responseMessage" class="alert d-none mt-3"></div>
             </form>
-          </div><!-- End Contact Form -->
+          </div>
+          
 
         </div>
 
@@ -889,7 +911,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -904,6 +926,57 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKP86944" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let form = document.getElementById('contactForm');
+        let submitButton = document.getElementById('submitButton');
+        let buttonSpinner = document.getElementById('buttonSpinner');
+        let responseMessage = document.getElementById('responseMessage');
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+    
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+    
+            // Show loading spinner
+            submitButton.disabled = true;
+            buttonSpinner.classList.remove('d-none');
+    
+            let formData = new FormData(form);
+    
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseMessage.classList.remove('d-none', 'alert-danger', 'alert-success');
+                responseMessage.classList.add(data.success ? 'alert-success' : 'alert-danger');
+                responseMessage.innerHTML = data.message;
+    
+                if (data.success) {
+                    form.reset();
+                    form.classList.remove('was-validated');
+                }
+            })
+            .catch(() => {
+                responseMessage.classList.remove('d-none', 'alert-success');
+                responseMessage.classList.add('alert-danger');
+                responseMessage.innerHTML = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                buttonSpinner.classList.add('d-none');
+            });
+        });
+    });
+    </script>
+    
 
 </body>
 
