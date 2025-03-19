@@ -103,41 +103,42 @@
             </div>
           </div>
           <div class="col-lg-5 mt-0 order-1 order-lg-2" data-aos="zoom-out" data-aos-delay="100">
-            <form class="contact-form needs-validation" id="contactForm" action="./forms/contact.php" method="POST"
-              novalidate>
+            <form class="contact-form needs-validation" id="consultationForm" action="./forms/contact.php" method="POST" novalidate>
               <h4 class="form-title mb-4">Request a Consultation</h4>
-
+            
               <div class="mb-3">
-                <input type="text" class="form-control" id="fullnamer" name="fullnamer" placeholder="Enter your name"
+                <input type="text" class="form-control" id="fullnamer" name="fullnamer" placeholder="Enter Your Name"
                   required minlength="3">
                 <div class="invalid-feedback">Name must be at least 3 characters.</div>
               </div>
-
+            
               <div class="mb-3">
-                <input type="email" class="form-control" id="emailr" name="emailr" placeholder="Enter your email"
-                  required>
+                <input type="email" class="form-control" id="emailr" name="emailr" placeholder="Enter Your Email" required>
                 <div class="invalid-feedback">Please enter a valid email address.</div>
               </div>
-
+            
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="WhatsApp">
+                <input type="text" class="form-control" id="contactr" name="contactr" pattern="^\d{8}$"
+                  placeholder="Enter Your WhatsApp Number" required>
+                <div class="invalid-feedback">Please enter a valid 8-digit WhatsApp number.</div>
               </div>
-
+            
               <div class="mb-3">
-                <textarea class="form-control" id="messager" name="messager" placeholder="Enter your message" rows="3"
+                <textarea class="form-control" id="messager" name="messager" placeholder="Enter Your Message" rows="3"
                   required minlength="10"></textarea>
                 <div class="invalid-feedback">Message must be at least 10 characters.</div>
               </div>
-
-              <button type="submit" class="btn btn-primary d-flex align-items-center" id="submitButton">
+            
+              <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center" id="consultationSubmit">
                 <span>Explore Now</span>
                 <i class="bi bi-arrow-right ms-2"></i>
-                <span id="buttonSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
+                <span id="consultationSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
                   aria-hidden="true"></span>
               </button>
-
-              <div id="responseMessage" class="alert d-none mt-3"></div>
+            
+              <div id="consultationResponse" class="alert d-none mt-3"></div>
             </form>
+            
           </div>
 
         </div>
@@ -220,7 +221,7 @@
                   we provide seamless solutions for a smooth corporate journey.</p>
               </div>
               <div class="card-footer border-0">
-                <a href="./service/Business-Setup&Corporate-Services.html" class="btn btn-primary mt-3 w-100">Read More
+                <a href="./service/Business-Setup&Corporate-Services.html" class="btn btn-primary w-100">Read More
                   <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -240,7 +241,7 @@
                   efficiently. Stay focused on growing your business while we take care of the formalities.</p>
               </div>
               <div class="card-footer border-0">
-                <a href="./service/Legal&Documentation.html" class="btn btn-primary mt-3 w-100">Read More<i
+                <a href="./service/Legal&Documentation.html" class="btn btn-primary w-100">Read More<i
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -263,7 +264,7 @@
 
 
               <div class="card-footer border-0">
-                <a href="./service/Financial-Management-Services.html" class="btn btn-primary mt-3 w-100">Read More<i
+                <a href="./service/Financial-Management-Services.html" class="btn btn-primary w-100">Read More<i
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -284,7 +285,7 @@
               </div>
 
               <div class="card-footer border-0">
-                <a href="./service/Growth-Marketing.html" class="btn btn-primary mt-3 w-100">Read More <i
+                <a href="./service/Growth-Marketing.html" class="btn btn-primary w-100">Read More <i
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -304,7 +305,7 @@
                   Get started today!</p>
               </div>
               <div class="card-footer border-0">
-                <a href="./service/Website&E-Commerce.html" class="btn btn-primary mt-3 w-100">Read More <i
+                <a href="./service/Website&E-Commerce.html" class="btn btn-primary w-100">Read More <i
                     class="bi bi-arrow-right"></i></a>
               </div>
             </div>
@@ -324,7 +325,7 @@
                   today for hassle-free tax management!</p>
               </div>
               <div class="card-footer border-0">
-                <a href="./service/Tax-Services.html" class="btn btn-primary mt-3 w-100">Read More <i
+                <a href="./service/Tax-Services.html" class="btn btn-primary w-100">Read More <i
                     class="bi bi-arrow-right"></i></a>
               </div>
 
@@ -376,7 +377,7 @@
               Whether you're a small retailer or a large enterprise, streamline operations and grow sales with our
               all-in-one solution!
             </p>
-            <ul>
+            <ul class="text-start">
               <li><i class="bi bi-check2-all"></i>
                 <div><strong>WhatsApp Order Management</strong> – Process, track, and
                   fulfill orders effortlessly.
@@ -632,14 +633,15 @@
     </section>
 
     <!-- Logo Slider Section -->
-    <section id="logo-slider" class="clients section pt-5 pb-5">
+    <section id="logo-slider" class="clients section pt-5 pb-5" style="background-color: color-mix(in srgb, #e8101c, transparent 90%);
+">
       <div class="container">
         <div class="row align-items-center">
           <!-- Left Column - Title & Description -->
           <div class="col-lg-6 text-center text-lg-start">
             <div class="container section-title">
               <span>Our Clients</span>
-              <h2>Our <i class="thanks-span">thanks</i> </h2>
+              <h2>Our <i class="thanks-span" style="font-style: normal; color: #f8981d;">thanks</i> </h2>
             </div>
             <p class="text-muted">
               We are proud to have partnered with a diverse range of clients across multiple industries.
@@ -659,8 +661,8 @@
               },
               
               "breakpoints": {
-                "320": { "slidesPerView": 2, "spaceBetween": 20 },
-                "768": { "slidesPerView": 1, "spaceBetween": 20 },
+                "320": { "slidesPerView": 1, "spaceBetween": 20 },
+                "768": { "slidesPerView": 2, "spaceBetween": 20 },
                 "992": { "slidesPerView": 2, "spaceBetween": 20 }
               }
             }
@@ -668,7 +670,8 @@
               <div class="swiper-wrapper text-center">
                 <div class="swiper-slide"><img src="./assets/img/logos/BEANS & SEEDS LOGO-1.png" alt="Client 1"
                     class="client-logo"></div>
-                <div class="swiper-slide"><img src="./assets/img/logos/Untitled-4.png" alt="Client 2" class="client-logo">
+                <div class="swiper-slide"><img src="./assets/img/logos/Untitled-4.png" alt="Client 2"
+                    class="client-logo">
                 </div>
                 <div class="swiper-slide"><img src="./assets/img/logos/SANFORD Logo-1.png" alt="Client 3"
                     class="client-logo"></div>
@@ -737,52 +740,51 @@
           <div class="col-lg-7">
             <form class="contact-form needs-validation php-email-form" id="contactForm" action="./forms/newsletter.php" method="post" novalidate>
               <div class="row gy-4">
-          
+            
                 <div class="col-md-6">
-                  <label for="name" class="pb-2">Your Name</label>
+                  <label for="fullname" class="pb-2">Your Name</label>
                   <input type="text" name="fullname" id="fullname" placeholder="Enter your Name" class="form-control" required>
                   <div class="invalid-feedback">Please enter your name.</div>
                 </div>
-          
+            
                 <div class="col-md-6">
                   <label for="email" class="pb-2">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="Enter your Email" required>
                   <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
-          
+            
                 <div class="col-md-6">
                   <label for="contact" class="pb-2">Your Contact</label>
                   <input type="tel" class="form-control" name="contact" id="contact" placeholder="Enter your Contact" required>
                   <div class="invalid-feedback">Please enter a valid contact number.</div>
                 </div>
-          
+            
                 <div class="col-md-6">
                   <label for="subject" class="pb-2">Subject</label>
                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter your Subject" required>
                   <div class="invalid-feedback">Please enter a subject.</div>
                 </div>
-          
+            
                 <div class="col-md-12">
                   <label for="message" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" id="message" rows="5" placeholder="Enter your Message..." required></textarea>
+                  <textarea class="form-control" name="message" id="message" rows="5"
+                    placeholder="Enter your Message..." required></textarea>
                   <div class="invalid-feedback">Please enter your message.</div>
                 </div>
-          
+            
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary" id="submitButton">
+                  <button type="submit" class="btn btn-primary" id="contactSubmit">
                     Send Message
-                    <span id="buttonSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
+                    <span id="contactSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
+                      aria-hidden="true"></span>
                   </button>
                 </div>
-          
+            
               </div>
-              <div id="responseMessage" class="alert d-none mt-3"></div>
+              <div id="contactResponse" class="alert d-none mt-3"></div>
             </form>
-          </div>
-          
-
+            </div>
         </div>
-
       </div>
     </section><!-- /Contact Section -->
   </main>
@@ -928,54 +930,60 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        let form = document.getElementById('contactForm');
-        let submitButton = document.getElementById('submitButton');
-        let buttonSpinner = document.getElementById('buttonSpinner');
-        let responseMessage = document.getElementById('responseMessage');
-    
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-    
-            if (!form.checkValidity()) {
-                form.classList.add('was-validated');
-                return;
-            }
-    
-            // Show loading spinner
-            submitButton.disabled = true;
-            buttonSpinner.classList.remove('d-none');
-    
-            let formData = new FormData(form);
-    
-            fetch(form.action, {
-                method: form.method,
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                responseMessage.classList.remove('d-none', 'alert-danger', 'alert-success');
-                responseMessage.classList.add(data.success ? 'alert-success' : 'alert-danger');
-                responseMessage.innerHTML = data.message;
-    
-                if (data.success) {
-                    form.reset();
-                    form.classList.remove('was-validated');
-                }
-            })
-            .catch(() => {
-                responseMessage.classList.remove('d-none', 'alert-success');
-                responseMessage.classList.add('alert-danger');
-                responseMessage.innerHTML = 'An error occurred. Please try again.';
-            })
-            .finally(() => {
-                submitButton.disabled = false;
-                buttonSpinner.classList.add('d-none');
-            });
+  function setupForm(formId, submitButtonId, spinnerId, responseId, phpFile) {
+    let form = document.getElementById(formId);
+    let submitButton = document.getElementById(submitButtonId);
+    let buttonSpinner = document.getElementById(spinnerId);
+    let responseMessage = document.getElementById(responseId);
+
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+      }
+
+      event.preventDefault(); // Prevent default form submission
+      submitButton.disabled = true;
+      buttonSpinner.classList.remove('d-none');
+
+      let formData = new FormData(form);
+
+      fetch(phpFile, {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          responseMessage.classList.remove('d-none', 'alert-danger', 'alert-success');
+          responseMessage.classList.add(data.success ? 'alert-success' : 'alert-danger');
+          responseMessage.innerHTML = data.message;
+
+          if (data.success) {
+            form.reset();
+            form.classList.remove('was-validated');
+          }
+        })
+        .catch(() => {
+          responseMessage.classList.remove('d-none', 'alert-success');
+          responseMessage.classList.add('alert-danger');
+          responseMessage.innerHTML = 'An error occurred. Please try again.';
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+          buttonSpinner.classList.add('d-none');
         });
-    });
-    </script>
-    
+    }, false);
+  }
+
+  // Apply the function to both forms
+  setupForm("consultationForm", "consultationSubmit", "consultationSpinner", "consultationResponse", "./forms/contact.php");
+  setupForm("contactForm", "contactSubmit", "contactSpinner", "contactResponse", "./forms/newsletter.php");
+});
+
+  </script>
+
 
 </body>
 

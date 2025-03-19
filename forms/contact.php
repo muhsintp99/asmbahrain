@@ -12,10 +12,10 @@ header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $namer = trim(htmlspecialchars($_POST['fullname']));
-    $emailr = trim(htmlspecialchars($_POST['email']));
-    $phoner = trim(htmlspecialchars($_POST['contact']));
-    $messager = trim(htmlspecialchars($_POST['message']));
+    $namer = trim(htmlspecialchars($_POST['fullnamer']));
+    $emailr = trim(htmlspecialchars($_POST['emailr']));
+    $phoner = trim(htmlspecialchars($_POST['contactr']));
+    $messager = trim(htmlspecialchars($_POST['messager']));
 
     // Basic Validation
     if (strlen($namer) < 3) {
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    if (!preg_match("/^\d{8}$/", $phoner)) { // Corrected to 10 digits
+    if (!preg_match("/^\d{8}$/", $phoner)) { 
         $response['message'] = "Enter a valid 8-digit phone number.";
         echo json_encode($response);
         exit;

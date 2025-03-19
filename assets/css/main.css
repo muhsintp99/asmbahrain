@@ -1650,6 +1650,12 @@ section,
 
 }
 
+.services .service-item .card-footer{
+background-color: var(--background-color);
+padding: 0;
+
+}
+
 /* .services .row {
   display: flex;
   flex-wrap: wrap;
