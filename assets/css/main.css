@@ -719,6 +719,12 @@ section,
   text-transform: uppercase;
   line-height: 1;
 }
+.section-title h2 .thanks-span {
+  color: var(--just-color);
+  font-style: normal;
+
+}
+
 
 .section-title p {
   margin-bottom: 0;
