@@ -1,5 +1,0 @@
-# Ignore PHPMailer folder
-/PHPMailer/
-
-# Or if it's inside another folder (adjust accordingly)
-./assets/vendor/PHPMailer/
