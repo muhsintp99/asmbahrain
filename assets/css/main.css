@@ -698,6 +698,7 @@ section,
 
 .section-title h2 {
   font-size: 32px;
+  font-style: normal;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -719,12 +720,11 @@ section,
   text-transform: uppercase;
   line-height: 1;
 }
-.section-title h2 .thanks-span {
+
+.section-title h2 i {
   color: var(--just-color);
   font-style: normal;
-
 }
-
 
 .section-title p {
   margin-bottom: 0;
@@ -1391,7 +1391,7 @@ section,
 # Our clients Section
 --------------------------------------------------------------*/
 
-.clients{
+#logo-slider{
   background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
 }
 
