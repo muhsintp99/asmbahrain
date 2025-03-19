@@ -99,29 +99,49 @@
               organizations navigate challenges and achieve growth.</p>
 
             <div class="cta-buttons">
-              <a href="#about" class="btn-get-started">Get Help </a>
+              <a href="https://forms.gle/wjdaHqnzu4nqF7PCA" class="btn-get-started">Get Help </a>
             </div>
           </div>
           <div class="col-lg-5 mt-0 order-1 order-lg-2" data-aos="zoom-out" data-aos-delay="100">
-            <form class="contact-form">
+            <form class="contact-form needs-validation" id="contactForm" action="./forms/contact.php" method="POST"
+              novalidate>
               <h4 class="form-title mb-4">Request a Consultation</h4>
+
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Name">
+                <input type="text" class="form-control" id="fullnamer" name="fullnamer" placeholder="Enter your name"
+                  required minlength="3">
+                <div class="invalid-feedback">Name must be at least 3 characters.</div>
               </div>
+
               <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" id="emailr" name="emailr" placeholder="Enter your email"
+                  required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
               </div>
+
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="WhatsApp">
+                <input type="text" class="form-control" id="contactr" name="contactr" pattern="^\d{10}$"
+                  placeholder="Enter your WhatsApp number" required>
+                <div class="invalid-feedback">Please enter a valid 8-digit WhatsApp number.</div>
               </div>
+
               <div class="mb-3">
-                <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                <textarea class="form-control" id="messager" name="messager" placeholder="Enter your message" rows="3"
+                  required minlength="10"></textarea>
+                <div class="invalid-feedback">Message must be at least 10 characters.</div>
               </div>
-              <button type="submit" class="btn btn-primary">
-                Explore Now <i class="bi bi-arrow-right"></i>
+
+              <button type="submit" class="btn btn-primary d-flex align-items-center" id="submitButton">
+                <span>Explore Now</span>
+                <i class="bi bi-arrow-right ms-2"></i>
+                <span id="buttonSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status"
+                  aria-hidden="true"></span>
               </button>
+
+              <div id="responseMessage" class="alert d-none mt-3"></div>
             </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -656,7 +676,7 @@
                     class="client-logo"></div>
                 <div class="swiper-slide"><img src="./assets/img/logos/mountain hills logo-1.png" alt="Client 4"
                     class="client-logo"></div>
-                
+
               </div>
               <!-- <div class="swiper-pagination"></div> -->
             </div>
@@ -889,7 +909,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -904,6 +924,57 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKP86944" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let form = document.getElementById('contactForm');
+        let submitButton = document.getElementById('submitButton');
+        let buttonSpinner = document.getElementById('buttonSpinner');
+        let responseMessage = document.getElementById('responseMessage');
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+    
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+    
+            // Show loading spinner
+            submitButton.disabled = true;
+            buttonSpinner.classList.remove('d-none');
+    
+            let formData = new FormData(form);
+    
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseMessage.classList.remove('d-none', 'alert-danger', 'alert-success');
+                responseMessage.classList.add(data.success ? 'alert-success' : 'alert-danger');
+                responseMessage.innerHTML = data.message;
+    
+                if (data.success) {
+                    form.reset();
+                    form.classList.remove('was-validated');
+                }
+            })
+            .catch(() => {
+                responseMessage.classList.remove('d-none', 'alert-success');
+                responseMessage.classList.add('alert-danger');
+                responseMessage.innerHTML = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                buttonSpinner.classList.add('d-none');
+            });
+        });
+    });
+    </script>
+    
 
 </body>
 
