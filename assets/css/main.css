@@ -998,7 +998,7 @@ section,
 @media (max-width: 991px) {
   .hero .contact-form {
     padding: 1.5rem;
-    height: 475px;
+    height: fit-content;
   }
 }
 
@@ -1032,7 +1032,7 @@ section,
 
   .hero .contact-form {
     padding: 1.5rem;
-    height: 447px;
+    /* height: 447px; */
   }
 
   .hero .contact-form .form-control {
